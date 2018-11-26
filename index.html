@@ -1,0 +1,401 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/blood.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+    <style>
+        .reveal .slide-number {
+            font-size: 24pt;
+        }
+    </style>
+</head>
+<body>
+<div class="reveal">
+
+    <div class="slides">
+        <section>
+            <section>
+                <h1>Web of Things</h1>
+                <p>
+                    <small>Autor: <a href="https://www.github.com/kozlowsky">Jakub Kozłowski</a> / <a
+                            href="http://jakubkozlowski.com/">jakubkozlowski.com</a></small>
+                </p>
+            </section>
+            <section id="table-of-contents" style="text-align: left">
+                <h3>Plan prezentacji</h3>
+                <p>1. Internet of Things</p>
+                <p>2. Zastosowanie IoT</p>
+                <p>3. Problemy systemów IoT</p>
+                <p>4. Web of Things</p>
+                <p>5. Architektura WoT</p>
+                <p>6. Podsumowanie</p>
+                <p>7. Źródła</p>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Internet of Things</h2>
+            </section>
+            <section>
+                <h3>Czym jest Internet of Things?</h3>
+                <p>Koncepcja bazująca na idei łączności między urządzeniami (M2M - Machine to machine).</p>
+                <aside class="notes">
+                    Jest to szeroko rozumiana koncepcja bazująca na idei łączności między urządzeniami (M2M - machine to
+                    machine).
+                    Oznacza to, że zakłada ona możliwość komunikacji, wymiany, gromadzenia oraz przetwarzania danych
+                    przez urządzenie bez interakcji człowieka, a jedynie za pośrednictwem sieci komputerowej.
+                    Urządzenia jednak muszą być dla siebie w pełni identyfikowalne.
+                </aside>
+            </section>
+            <section>
+                <h3>Krótka historia</h3>
+                <p class="fragment current-visible">
+                    Pojęcie Internet rzeczy zostało pierwszy raz użyte w roku 1999.
+                </p>
+                <p class="fragment current-visible">
+                    Jednym z pierwszych przykładów wykorzystania IoT jest dystrybutor coca-coli na uniwersytecie
+                    Carnegie Melon University w roku 1980.
+                </p>
+                <aside class="notes">
+                    Pojęcie IoT zostało pierwszy raz wykorzystane przez brytyjskiego przedsiębiorcę
+                    i twórcę start-up'ów Kevina Ashtona w roku 1999.
+
+                    Jednym z pierwszych przykładów zastosowań iot datuje się na rok 1980. Programiści
+                    z uniwersytetu Carnegie Melon University zanim się pofatygowali po kupno puszki coli, łączyli się
+                    poprzez internet z dystrybutorem w celu sprawdzenia czy napój jest dostępny oraz czy jest
+                    wystarczająco
+                    chłodny.
+                </aside>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Zastosowanie IoT</h2>
+            </section>
+            <section>
+                <h3>Obszary zastosowań IoT</h3>
+                <p class="fragment fade-in">Inteligentne domy i budynki</p>
+                <p class="fragment fade-in">Inteligentne miasta</p>
+                <p class="fragment fade-in">Inteligentne systemy pomiarowe</p>
+                <p class="fragment fade-in">Inteligentne środowiska (monitorowanie zagrożeń)</p>
+                <p class="fragment fade-in">Inteligentne sieci zdrowia
+                    <span class="fragment highlight-current-red">  (IoMT) </span></p>
+                <p class="fragment fade-in">I wiele, wiele innych...</p>
+                <aside class="notes">
+                    Wraz z prężnie rozwijającym się postępem technologicznym rosną możliwości wykorzystania urządzeń
+                    elektronicznych do zrewolucjonizowania codziennych sfer życia. Przykładami takich zastosowań są:
+                    - inteligentne domy i budynki,
+                    sterowanie ogrzewaniem, symulacja obecności, system alarmowy i monitoringu, system przeciwpożarowy,
+                    system kontroli dostępu, system pogodowy.
+                    - inteligentne miasta
+                    informacje dotyczące natężenia i charakteru ruchu, kierowanie kierowców przez miejsca mniej
+                    zatłoczone,
+                    monitoring wolnych miejsc parkingowych, wykrywanie przestępstw i aktów wandalizmu
+                    - inteligentne systemy pomiarowe,
+                    zdalne odczytywanie liczników, statusów alarmowych, natychmiastowe billingi za zużyte zasoby,
+                    wykrywanie i diagnozowanie usterek oraz ich naprawa,
+                    - inteligentne środowiska,
+                    czujniki i urządzenia wykonawcze, które po wykryciu ognia, same skontaktują się ze strażą pożarną,
+                    informacje na temat obecności ludzi w miejscu zagrożenia, a także o rodzaju palnych materiałów
+                    czy stopniu zajęcia ogniem,
+                    - inteligentne sieci zdrowia
+                    śledzenie wybranych parametrów i sygnałów fizjologicznych, np. temperatura, ciśnienie krwi,
+                    zbieranie danych dotyczących aktywności, takie systemy pozwolą sprawdzić czy osoba zjada odpowiednią
+                    liczbę posiłków, czy przyjmuje leki, czy wykonuje podstawowe zabiegi higieniczne.
+
+                    Warto zauważyć, że rozwiązania IoT w świecie medycyny doczekały się własnej nazwy IoMT - Internet
+                    of Medical Things. Ciekawymy przykładem przyszłościowych rozwiązań tego typu jest:
+                    Elektroniczne tatuaże - lekkie, nieinwazyjne, nie przeszkadzają w życiu codziennym, nie wymagają
+                    ładowania. Można je zasilać za pomocą energii słonecznej lub promieniowana elektromagnetycznego.
+                    Przykładem użycia tej technologii jest pomoc kobietom w ciąży. Naukowcy z Uniwersytetu w Illinois
+                    zaprojektowali tatuaż, który nieustannie monitoruje procesy życiowe zarówno życia płodowego, jak i
+                    matki.
+                </aside>
+            </section>
+            <section>
+                <h3>Jak wielkie jest Iot?</h3>
+                <img src="assets/Number-of-global-device-connections-2015-2025-Number-of-IoT-Devices.png" height="450"
+                     width="800"/>
+                <p style="margin-top: -15px;">
+                    <small>Źródło: <a
+                            href="https://iot-analytics.com/state-of-the-iot-update-q1-q2-2018-number-of-iot-devices-now-7b/">Rysunek
+                        przedstawiający
+                        porównanie urządzeń Non-IoT vs. IoT [1]</a>
+                    </small>
+                </p>
+                <aside class="notes">
+                    Aktualna liczba aktywnych połączonych na całym świecie wynosi ponad 17.5 miliarda, z czego około 40%
+                    to urządzenia typu IoT. Przewiduje się, że do 2025 roku liczba ta wzrośnie dwukrotnie. Jak widać na
+                    załączonym obrazku, zakłada się, że urządzenia typu iot będą zdecydowaną wiekszością, a pod uwagę
+                    brane
+                    są jedynie aktywne urządzenia, bez tych kupionych w przeszłości i aktualnie nieużywanych.
+                </aside>
+            </section>
+            <section>
+                <h3>Standardy łącnzości urządzeń IoT</h3>
+                <img src="assets/iot-devices.png" height="450" width="800">
+                <p style="margin-top: -15px;">
+                    <small><a
+                            href="https://iot-analytics.com/state-of-the-iot-update-q1-q2-2018-number-of-iot-devices-now-7b/">Rysunek
+                        obrazujący typy łączności wykorzystywane w IoT [2]
+                    </a>
+                    </small>
+                </p>
+                <aside class="notes">
+                    Przed przystąpieniem do omówienia typów urządzeń trzeba zauważyć, że wykres ten nie obejmuje
+                    komputerów,
+                    laptopów, telefonów stacjonarnych lub komórkowych i tabletów.
+
+                    Największa grupa urządzeń IoT jest połączonych przez bezprzewodową sieć o zasięgu osobistym (WPAN -
+                    Wireless personal area network). Nie przekracza ona jednak 100 milionów urządzeń. Przykładem takich
+                    urządzeń są
+                    słuchawki połączone przez bluetooth.
+
+                    Drugą największą grupą jest WLAN. Są to urządzenia typu: domowi asystenci, inteligentne telewizory,
+                    zestawy dźwiękowe.
+
+                    5G jest wciąż rozwijane. Obiecuja ona zupełnie nową erę łączności poprzez pasmo 700MHz i oferuje
+                    ekstremalnie niskie opóźnienie. Szacuje się, że będzie ona publicznie dostępna w roku 2020.
+                </aside>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Zalety i wady IoT</h2>
+            </section>
+            <section>
+                <h3>Zalety systemów IoT</h3>
+                <p class="fragment fade-up">Dostęp do informacji</p>
+                <p class="fragment fade-up">Komunikacja</p>
+                <p class="fragment fade-up">Oszczędność</p>
+                <p class="fragment fade-up">Automatyzacja</p>
+                <aside class="notes">
+                    Dostęp do informacji jest bardzo wygodny. Dostęp do danych oddalnych od nas setki lub tysiące
+                    kilometrów
+                    jest możliwy w czasie rzeczywistym.
+
+                    Komunikacja połączonych ze sobą urządzeń staje się bardziej transparentna co zwiększa jej
+                    efektywność.
+                    Procesy, w których maszyny się ze sobą komunikują stają się bardziej efektywne
+                    oraz osiągają one lepsze i szybsze rezultaty.
+
+                    Jak wspomniano w powyższym punkcie, komunikacja urządzeń staje się prostsza dzięki IoT. To pomaga
+                    ludziom
+                    w wykonywaniu codziennych zadań, a przesyłanie danych przez sieć oszczędza czas i pieniądze.
+
+                    Dzięki zautomatyzowaniu urządzeń do rozwiązywania za nas codziennych zadań jesteśmy w stanie wykonać
+                    ich
+                    więcej i szybciej. Może to się okazać również wadą, która zostanie omówiona później.
+                </aside>
+            </section>
+            <section>
+                <h3>Wady systemów IoT</h3>
+                <p class="fragment fade-right">Prywatność & bezpieczeństwo</p>
+                <p class="fragment fade-right">Złożoność</p>
+                <p class="fragment fade-right">Malejąca liczba stanowisk pracy</p>
+                <p class="fragment fade-right">Zależność</p>
+                <p class="fragment fade-right">Ograniczenia</p>
+                <aside class="notes">
+                    W dzisiejszym świecie każdy z nas używa urządzeń połączonych z internetem. Większa liczba urządzeń
+                    wiąże się z większym ryzykiem przecieku ważnych danych.
+
+                    W związku z tym, że internet rzeczy jest bardzo złożonym pojęciem, pojedyncza luka może mieć wpływ
+                    na resztę systemu. Jest to aktualnie najbardziej skomplikowany aspekt internetu rzeczy,
+                    który może okazać się tragiczna w skutkach.
+
+                    Istnieje tendecja automatyzowania jak największej liczby zadań, czego efektem jest malejąca liczba
+                    stanowisk
+                    pracy.
+
+                    Tak jak wcześniej wspomniano każdy z nas używa urządzeń elektronicznych. Wykorzystywane one są nawet
+                    przy najmniejszych zadaniach, a ludzkość staje się w pełni zależna od nich.
+
+                    Zbudowanie pojedynczego, globalnego ekosystemu "rzeczy" komunikującego się ze sobą jest aktualnie
+                    niemożliwe. Jest to spowodowane brakiem unikalnego i uniwersalnego protokołu aplikacji dla internetu
+                    rzeczy,
+                    który byłby w stanie pracować pośród wielu sieci internetu rzeczy. W skrócie iot akutalnie jest
+                    kolekcją
+                    odizolowanych zbiorów, nie mogących się ze sobą komunikować.
+
+                    Potrzebny jest uniwersalny "język", którym urządzenia i aplikacje mogłyby się ze sobą komunikować,
+                    bez
+                    względu w jaki sposób są one fizycznie połączone. Zamiast tworzyć zupełnie nowy protokół, można
+                    wykorzystać
+                    sieć. Pojęcie to nazywa się Web of Things.
+                </aside>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Web of Things</h2>
+            </section>
+            <section>
+                <img src="assets/wot-vs-iot.png" height="450" width="800">
+                <p style="margin-top: -15px;">
+                    <small><a
+                            href="https://webofthings.org/2016/01/23/wot-vs-iot-12/">Rysunek obrazujący IoT vs WoT
+                        [3]</a>
+                    </small>
+                </p>
+
+                <aside class="notes">
+                    Tak jak wspomniano wcześniej, organiczenia IoT stają się oczywiste w momencie kiedy zaistnieje
+                    potrzeba zintegrowania ze sobą urządzeń z wielu różnych sieci komputerowych w jeden duży system.
+                </aside>
+            </section>
+            <section>
+                <img src="assets/iot-vs-wot-protocols.png">
+                <p style="margin-top: -15px;">
+                    <small><a
+                            href="https://webofthings.org/2016/01/23/wot-vs-iot-12/">Warstwa aplikacji z której korzysta
+                        WoT [4]</a>
+                    </small>
+                </p>
+                <aside class="notes">
+                    Web of Things korzysta jedynie z najwyższej, siódmej warstwy OSI, która obsługuje aplikacje,
+                    usługi i dane. Pracowanie na tym poziomie abstrakcji umożliwia danych i serwisów z wielu różnych
+                    urządzeń bez względu jakiego protokołu przesyłania danych używają. Dostęp do zasobów jest
+                    realizowany
+                    przez architekturę REST. Każda z tzw. "rzeczy" ma URI jako nazwę, które identyfikuje jakiś zasób.
+                    Dane mogą być reprezentowane za pomocą strony HTML, zrozumiałej dla człowieka, natomiast komunikacja
+                    między "rzeczami" polega na wykorzystaniu formatów JSON lub XML.
+                </aside>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Architektura WoT</h2>
+            </section>
+            <section>
+                <h3>Warstwy WoT</h3>
+                <p class="fragment fade-left">Dostęp</p>
+                <p class="fragment fade-left">Wyszukiwanie</p>
+                <p class="fragment fade-left">Udostępnianie</p>
+                <p class="fragment fade-left">Kompozycja</p>
+            </section>
+            <section>
+                <img src="assets/wot-architecture-guinard-trifa.png" height="550" width="550">
+                <p style="margin-top: -15px;">
+                    <small><a
+                            href="https://webofthings.org/2016/01/23/wot-vs-iot-12/">Architektura WoT [5]</a>
+                    </small>
+                </p>
+                <aside class="notes">
+                    Warstwy WoT bardziej, niż typowe warstwy określają kolejne poziomy, które dodają dodatkowe
+                    możliwości.
+
+                    Warstwa dostępu odpowiedzialna jest za przeszktałcenie jakiegokolwiek urządzenia w urządzenie typu
+                    Web Thing. Dostęp do nich uzyskuje się za pomocą żądań HTTP, tak jak każdych innych zasobów
+                    znajdujących
+                    się w sieci. Innymi słowy "taka rzecz" jest restowym API, które umożliwia interakcję z jakąkolwiek
+                    rzeczą z prawdziwego świata, np. zasłonięcie rolet okiennych.
+
+                    Warstwa wyszukiwania zapewnia, że nasza "rzecz" nie może być łatwo wykorzystana przez jakiegokolwiek
+                    klienta
+                    HTTP, ale może być łatwo wyszukiwalna i automatycznie używana przez inne aplikacje typu WoT.
+
+                    Warstwa udostępniania odpowiedzialna jest za bezpieczne udostępnianie danych pomiędzy serwisami.
+                    Opisuje ona w jaki sposób dane wygenerowane przez "rzecz" będą efektywnie i bezpiecznie przesyłane
+                    w sieci.
+
+                    W końcu kiedy nasze rzeczy typu Web of Things są dostępne i w pełni wyszukiwalne przez maszyny i
+                    ludzi
+                    a ich zasoby są bezpiecznie udostępniane przychodzi czas na zbudowanie wielkich-skalowalnych
+                    aplikacji dla
+                    web of things. Odpowiedzialna za to jest warstwa Kompozycji.
+                </aside>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Podsumowanie</h2>
+            </section>
+            <section>
+                <h3>Fajne, ale niezbyt popularne!</h3>
+
+                <aside class="notes">
+                    Niestety Web of Things, mimo że jest stosunkowo nową technologią, nie jest ona zbyt popularna oraz
+                    nie zapowiada się, żeby takowa się stała.
+                </aside>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Źródła</h2>
+            </section>
+            <section style="text-align: left">
+                <p>[1] Źródło: <a
+                        href="https://iot-analytics.com/state-of-the-iot-update-q1-q2-2018-number-of-iot-devices-now-7b/">https://iot-analytics.com/state-of-the-iot-update-q1-q2-2018-number-of-iot-devices-now-7b/</a>
+                </p>
+                <p>[2] Źródło: <a
+                        href="https://iot-analytics.com/state-of-the-iot-update-q1-q2-2018-number-of-iot-devices-now-7b/">https://iot-analytics.com/state-of-the-iot-update-q1-q2-2018-number-of-iot-devices-now-7b/</a>
+                </p>
+                <p>[3] Źródło: <a
+                        href="https://webofthings.org/2016/01/23/wot-vs-iot-12/">https://webofthings.org/2016/01/23/wot-vs-iot-12/</a>
+                </p>
+                <p>[4] Źródło: <a
+                        href="https://webofthings.org/2016/01/23/wot-vs-iot-12/">https://webofthings.org/2016/01/23/wot-vs-iot-12/</a>
+                </p>
+                <p>[5] Źródło: <a
+                        href="https://webofthings.org/2016/01/23/wot-vs-iot-12/">https://webofthings.org/2016/01/23/wot-vs-iot-12/</a>
+                </p>
+            </section>
+        </section>
+
+        <section>
+            <h2>Dziękuję</h2>
+        </section>
+    </div>
+</div>
+
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+<script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+        history: true,
+        slideNumber: true,
+        controlsLayout: 'edges',
+        dependencies: [
+            {src: 'plugin/markdown/marked.js'},
+            {src: 'plugin/markdown/markdown.js'},
+            {src: 'plugin/notes/notes.js', async: true},
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }
+        ]
+    });
+
+</script>
+</body>
+</html>
